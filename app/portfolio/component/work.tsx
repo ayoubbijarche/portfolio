@@ -47,10 +47,10 @@ const Work = () => {
       <div>
         <Code color="success">@client:~$ sudo ShowWork</Code>
       </div>
-       <div className="flex flex-col gap-12 md:flex-row  flex-grow"> 
-        <ListWork title={"Full stack online fashion store"} tech={"using nextjs + pocketbase"} url={"https://github.com/ayoubbijarche/fashion-store-sample"} img={fashion}/>
-        <ListWork title={"A full stack chat app sample"} tech={"using svelte + pocketbase"} url={"https://github.com/ayoubbijarche/fashion-store-sample"} img={"https://nextui.org/images/hero-card-complete.jpeg"}/>
-        <ListWork title={"A full stack mobile app online store"} tech={"flutter + pocketbase"} url={"https://github.com/ayoubbijarche/fashion-store-sample"} img={"https://nextui.org/images/hero-card-complete.jpeg"}/>
+       <div className="flex flex-col gap-12 md:flex-row  flex-grow "> 
+        <ListWork title={"Full stack online fashion store"} tech={"using nextjs + pocketbase"} url={"https://github.com/ayoubbijarche/fashion-store-sample"} img={"https://github.com/ayoubbijarche/portfolio/blob/main/assets/images/fashion.png?raw=true"}/>
+        <ListWork title={"A full stack chat app sample"} tech={"using svelte + pocketbase"} url={"https://github.com/ayoubbijarche/fashion-store-sample"} img={"https://github.com/ayoubbijarche/portfolio/blob/main/assets/images/sveltechat.png?raw=true"}/>
+        <ListWork title={"A full stack mobile app online store"} tech={"flutter + pocketbase"} url={"https://github.com/ayoubbijarche/fashion-store-sample"} img={"https://github.com/ayoubbijarche/portfolio/blob/main/assets/images/mobile.png?raw=true"}/>
         <ListWork title={"Full stack rooms chat app using rust"} tech={"using rust rocket framework"} url={"https://github.com/ayoubbijarche/fashion-store-sample"} img={"https://nextui.org/images/hero-card-complete.jpeg"}/>
        </div>
        <div className="flex flex-col gap-12 md:flex-row  flex-grow"> 
