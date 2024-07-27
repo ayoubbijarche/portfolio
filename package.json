@@ -11,7 +11,7 @@
 		"lint": "eslint . --ext .ts,.tsx -c .eslintrc.json --fix",
     "deploy": "next build && next export && gh-pages -d out"
 	},
-	"	dependencies": {
+	"dependencies": {
 		"@nextui-org/avatar": "^2.0.32",
 		"@nextui-org/button": "2.0.37",
 		"@nextui-org/card": "^2.0.33",
