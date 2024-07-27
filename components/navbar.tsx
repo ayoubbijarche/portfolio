@@ -24,7 +24,7 @@ const Nav = () => {
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem>
-          <Button as={Link} color="success" href="#" variant="flat">
+          <Button as={Link} color="success" href="https://www.fiverr.com/ayoubbijarche?up_rollout=true" variant="flat">
             Hire me
           </Button>
         </NavbarItem>
