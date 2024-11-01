@@ -7,25 +7,31 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import NextImage from "next/image"
 import Head from "next/head"
+import Link from "next/link"
+
 import gitprofile from "./assets/profile/gitprofile.jpeg"
 import cardprofile from "./assets/profile/cardprofile.jpg"
-
+import profile from "./assets/profile/profile.png"
 import ecom from "./assets/projects/ecom.png"
 import chip8 from "./assets/projects/chip8.png"
 import app from "./assets/projects/ecomapp.png"
 import comic from "./assets/projects/comic.png"
 import rustchat from "./assets/projects/rustchat.png"
 import sveltechat from "./assets/projects/sveltechat.png"
+import favnext from "./favicon.ico"
+
 
 const techStack = [
-  { name: "JavaScript", icon: "/javascript.svg" },
-  { name: "React", icon: "/react.svg" },
-  { name: "Node.js", icon: "/nodejs.svg" },
-  { name: "Python", icon: "/python.svg" },
-  { name: "Git", icon: "/git.svg" },
-  { name: "Docker", icon: "/docker.svg" },
-  { name: "GraphQL", icon: "/graphql.svg" },
-  { name: "TypeScript", icon: "/typescript.svg" },
+  {name: "TypeScript", icon: "https://upload.wikimedia.org/wikipedia/commons/f/f5/Typescript.svg"},
+  {name : "PocketBase" , icon : "https://pocketbase.io/images/logo.svg"},
+  {name : "Supabase" , icon : "https://www.vectorlogo.zone/logos/supabase/supabase-icon.svg"},
+  {name : "Next.js" , icon : favnext},
+  {name : "Rust" , icon : "https://rustacean.net/assets/rustacean-orig-noshadow.svg"},
+  {name : "Flutter" , icon : "https://upload.wikimedia.org/wikipedia/commons/a/a2/Dart_programming_language_logo_icon.svg"},
+  {name : "React Native" , icon : "https://reactnative.dev/img/header_logo.svg"},
+  {name : "C programming" , icon : "https://upload.wikimedia.org/wikipedia/commons/d/d8/C_Language_Logo.svg"},
+  {name : "TailwindCss" , icon : "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg"},
+  {name : "Python", icon : "https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg"}
 ]
 
 const projects = [
@@ -35,6 +41,7 @@ const projects = [
   { id: 4, name: "Manga Store 📖", description: "A full comic & manga store e-commerce homepage build in Next.js", image: comic },
   { id: 5, name: "Rocket's🚀 chat app", description: "A full stack chat app made using rocketframework in rust", image: rustchat },
   { id: 6, name: "Svelte chat app 💬", description: "A full stack chat app made with svelte & pocketbase🐻", image: sveltechat },
+
 ]
 
 const GlowingElement = ({ color, size, left, top, delay }) => {
@@ -254,19 +261,19 @@ const HomeContent = ({ isDarkMode, isExpanded, setIsExpanded, shouldReduceMotion
               </CardContent>
             </Card>
             <div className="flex space-x-4">
-              <a href="mailto:your.email@example.com">
+              <a href="mail:toayoubbijarche6@gmail.com">
                 <Button variant="outline" size="icon">
                   <Mail className="h-4 w-4" />
                 </Button>
               </a>
               <a href="https://fiverr.com" target="_blank" rel="noopener noreferrer">
-                <Button variant="outline" size="icon">
-                  <ExternalLink className="h-4 w-4" />
+                <Button variant="outline" size="icon" className="bg-[#50caa3]">
+                    <h1 className="font-bold text-white">F</h1>
                 </Button>
               </a>
               <a href="https://upwork.com" target="_blank" rel="noopener noreferrer">
-                <Button variant="outline" size="icon">
-                  <ExternalLink className="h-4 w-4" />
+                <Button variant="outline" size="icon" className="bg-[#37A000]">
+                  <h1 className="font-bold text-white">U</h1>
                 </Button>
               </a>
             </div>
@@ -293,7 +300,7 @@ const AboutContent = ({ isDarkMode, shouldReduceMotion }) => (
           transition={{ duration: 0.5 }}
         >
           <NextImage
-            src="/placeholder.svg?height=300&width=300"
+            src={profile}
             alt="Profile"
             width={300}
             height={300}
@@ -410,7 +417,7 @@ const TechContent = ({ isDarkMode, shouldReduceMotion }) => (
             height={48}
             className="mb-2"
           />
-          <span className="font-medium text-center text-sm">{tech.name}</span>
+          <span className="font-medium text-center font-semibold text-sm">{tech.name}</span>
         </motion.div>
       ))}
     </div>
