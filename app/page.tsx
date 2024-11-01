@@ -2,12 +2,11 @@
 
 import { useState, useEffect, useCallback } from "react"
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion"
-import { Home, User, Briefcase, Wrench, Github, Mail, Sun, Moon, ExternalLink, GraduationCap, Book } from "lucide-react"
+import { Home, User, Briefcase, Wrench, Github, Mail, Sun, Moon} from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import NextImage from "next/image"
 import Head from "next/head"
-import Link from "next/link"
 
 import gitprofile from "./assets/profile/gitprofile.jpeg"
 import cardprofile from "./assets/profile/cardprofile.jpg"
