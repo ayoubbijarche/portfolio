@@ -5,11 +5,13 @@ const nextConfig: NextConfig = {
   devIndicators: {
     appIsrStatus: false,
   },
-  output: 'export',  // Enable static exports
+  output: 'export',
   basePath: process.env.NODE_ENV === 'production' ? '/portfolio' : '',
   images: {
-    unoptimized: true, // Required for static export
+    unoptimized: true,
   },
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/portfolio/' : '',
+  trailingSlash: true,
 };
 
 export default nextConfig;
