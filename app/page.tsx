@@ -20,7 +20,6 @@ import rustchat from "./assets/projects/rustchat.png"
 import sveltechat from "./assets/projects/sveltechat.png"
 import favnext from "./favicon.ico"
 
-
 const techStack = [
   {name: "TypeScript", icon: "https://upload.wikimedia.org/wikipedia/commons/f/f5/Typescript.svg"},
   {name : "PocketBase" , icon : "https://pocketbase.io/images/logo.svg"},
@@ -35,13 +34,12 @@ const techStack = [
 ]
 
 const projects = [
-  { id: 1, name: "E-commerce Website 🛍️", description: "An e-commerce fullstack website sample built using Next.js & pocketbase🐻", image: ecom },
-  { id: 2, name: "Chip-8 Emulator 🖳 ", description: "A chip-8 emulator that takes you back to the 70s using rust-lang 🦀", image: chip8 },
-  { id: 3, name: "E-commerce Mobile app 📱", description: "A full stack e-commerce mobile app made with flutter & pocketbase🐻", image: app },
-  { id: 4, name: "Manga Store 📖", description: "A full comic & manga store e-commerce homepage build in Next.js", image: comic },
-  { id: 5, name: "Rocket's🚀 chat app", description: "A full stack chat app made using rocketframework in rust", image: rustchat },
-  { id: 6, name: "Svelte chat app 💬", description: "A full stack chat app made with svelte & pocketbase🐻", image: sveltechat },
-
+  { id: 1, name: "E-commerce Website 🛍️", description: "An e-commerce fullstack website sample built using Next.js & pocketbase🐻", image: ecom, link: "https://github.com/ayoubbijarche/fashion-store-sample" },
+  { id: 2, name: "Chip-8 Emulator 🖳 ", description: "A chip-8 emulator that takes you back to the 70s using rust-lang 🦀", image: chip8, link: "https://github.com/ayoubbijarche/chip8emu-rust" },
+  { id: 3, name: "E-commerce Mobile app 📱", description: "A full stack e-commerce mobile app made with flutter & pocketbase🐻", image: app, link: "https://github.com/ayoubbijarche/ecommerce-fullstack-app" },
+  { id: 4, name: "Manga Store 📖", description: "A full comic & manga store e-commerce homepage build in Next.js", image: comic, link: "https://github.com/ayoubbijarche/manga-shop" },
+  { id: 5, name: "Rocket's🚀 chat app", description: "A full stack chat app made using rocketframework in rust", image: rustchat, link: "https://github.com/ayoubbijarche/rust-chat-app" },
+  { id: 6, name: "Svelte chat app 💬", description: "A full stack chat app made with svelte & pocketbase🐻", image: sveltechat, link: "https://github.com/ayoubbijarche/svelte-pocketbase-chatapp" },
 ]
 
 const GlowingElement = ({ color, size, left, top, delay }) => {
@@ -266,12 +264,12 @@ const HomeContent = ({ isDarkMode, isExpanded, setIsExpanded, shouldReduceMotion
                   <Mail className="h-4 w-4" />
                 </Button>
               </a>
-              <a href="https://fiverr.com" target="_blank" rel="noopener noreferrer">
+              <a  href="https://www.fiverr.com/bi_ayoub/buying?source=avatar_menu_profile" target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" size="icon" className="bg-[#50caa3]">
                     <h1 className="font-bold text-white">F</h1>
                 </Button>
               </a>
-              <a href="https://upwork.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.upwork.com/freelancers/~019f2d8062659aa24e" target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" size="icon" className="bg-[#37A000]">
                   <h1 className="font-bold text-white">U</h1>
                 </Button>
@@ -326,15 +324,17 @@ const AboutContent = ({ isDarkMode, shouldReduceMotion }) => (
         >
           <h3 className="text-2xl font-semibold mt-6 mb-3">Hire Me!</h3>
           <div className="flex space-x-4">
-            <a href="https://fiverr.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.fiverr.com/bi_ayoub/buying?source=avatar_menu_profile" target="_blank" rel="noopener noreferrer">
               <Button variant="outline">Fiverr</Button>
             </a>
-            <a href="https://upwork.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.upwork.com/freelancers/~019f2d8062659aa24e" target="_blank" rel="noopener noreferrer">
               <Button variant="outline">Upwork</Button>
             </a>
             <a href="mailto:ayoubbijarche6@gmail.com">
-              <Button variant="outline">Email Me</Button>
-            </a>
+              <Button variant="outline">
+                Email Me
+              </Button>
+           </a>
           </div>
         </motion.div>
       </div>
@@ -377,10 +377,12 @@ const PortfolioContent = ({ isDarkMode, shouldReduceMotion }) => (
               {project.description}
             </p>
             <div className="flex space-x-2">
-              <Button variant="outline" size="sm">
-                <Github className="h-4 w-4 mr-2" />
-                View Source
-              </Button>
+              <a href={project.link} target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" size="sm">
+                  <Github className="h-4 w-4 mr-2" />
+                  View Source
+                </Button>
+              </a>
             </div>
           </div>
         </motion.div>
