@@ -2,12 +2,13 @@
 
 import { useState, useEffect, useCallback } from "react"
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion"
-import { Home, User, Briefcase, Wrench, Github, Mail, Sun, Moon} from "lucide-react"
+import { Home, User, Briefcase, Wrench, Github, Mail, Sun, Moon } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import NextImage from "next/image"
+import Image from "next/image"
 import Head from "next/head"
 
+// Import images
 import gitprofile from "./assets/profile/gitprofile.jpeg"
 import cardprofile from "./assets/profile/cardprofile.jpg"
 import profile from "./assets/profile/profile.png"
@@ -21,15 +22,15 @@ import favnext from "./favicon.ico"
 
 const techStack = [
   {name: "TypeScript", icon: "https://upload.wikimedia.org/wikipedia/commons/f/f5/Typescript.svg"},
-  {name : "PocketBase" , icon : "https://pocketbase.io/images/logo.svg"},
-  {name : "Supabase" , icon : "https://www.vectorlogo.zone/logos/supabase/supabase-icon.svg"},
-  {name : "Next.js" , icon : favnext},
-  {name : "Rust" , icon : "https://rustacean.net/assets/rustacean-orig-noshadow.svg"},
-  {name : "Flutter" , icon : "https://upload.wikimedia.org/wikipedia/commons/a/a2/Dart_programming_language_logo_icon.svg"},
-  {name : "React Native" , icon : "https://reactnative.dev/img/header_logo.svg"},
-  {name : "C programming" , icon : "https://upload.wikimedia.org/wikipedia/commons/d/d8/C_Language_Logo.svg"},
-  {name : "TailwindCss" , icon : "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg"},
-  {name : "Python", icon : "https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg"}
+  {name: "PocketBase", icon: "https://pocketbase.io/images/logo.svg"},
+  {name: "Supabase", icon: "https://www.vectorlogo.zone/logos/supabase/supabase-icon.svg"},
+  {name: "Next.js", icon: favnext},
+  {name: "Rust", icon: "https://rustacean.net/assets/rustacean-orig-noshadow.svg"},
+  {name: "Flutter", icon: "https://upload.wikimedia.org/wikipedia/commons/a/a2/Dart_programming_language_logo_icon.svg"},
+  {name: "React Native", icon: "https://reactnative.dev/img/header_logo.svg"},
+  {name: "C programming", icon: "https://upload.wikimedia.org/wikipedia/commons/d/d8/C_Language_Logo.svg"},
+  {name: "TailwindCss", icon: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg"},
+  {name: "Python", icon: "https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg"}
 ]
 
 const projects = [
@@ -41,7 +42,7 @@ const projects = [
   { id: 6, name: "Svelte chat app 💬", description: "A full stack chat app made with svelte & pocketbase🐻", image: sveltechat, link: "https://github.com/ayoubbijarche/svelte-pocketbase-chatapp" },
 ]
 
-const GlowingElement = ({ color, size, left, top, delay } : { color : string, size : any , left : any, top : any, delay : any }) => {
+const GlowingElement = ({ color, size, left, top, delay }) => {
   const shouldReduceMotion = useReducedMotion()
   
   return (
@@ -81,32 +82,13 @@ export default function Component() {
     setIsDarkMode(prev => !prev)
   }, [])
 
-  const handleTabChange = useCallback((tab : any ) => {
+  const handleTabChange = useCallback((tab) => {
     setActiveTab(tab)
-  }, [])
-
-  // Preload images
-  useEffect(() => {
-    const imageUrls = [
-      ...projects.map(project => project.image),
-      ...techStack.map(tech => tech.icon),
-      "/placeholder.svg?height=300&width=300",
-      "/placeholder.svg?height=100&width=100",
-      "/placeholder.svg?height=50&width=50"
-    ]
-
-    imageUrls.forEach(src => {
-      const img = new window.Image()
-      img.src = src as string
-    })
   }, [])
 
   return (
     <>
       <Head>
-        <link rel="preload" href="/placeholder.svg?height=300&width=300" as="image" />
-        <link rel="preload" href="/placeholder.svg?height=100&width=100" as="image" />
-        <link rel="preload" href="/placeholder.svg?height=50&width=50" as="image" />
         {projects.map(project => (
           <link key={project.id} rel="preload" href={typeof project.image === "string" ? project.image : project.image.src} as="image" />
         ))}
@@ -175,7 +157,7 @@ export default function Component() {
   )
 }
 
-const HomeContent = ({ isDarkMode, isExpanded, setIsExpanded, shouldReduceMotion } : { isDarkMode : any, isExpanded : any, setIsExpanded : any, shouldReduceMotion : any }) => (
+const HomeContent = ({ isDarkMode, isExpanded, setIsExpanded, shouldReduceMotion }) => (
   <motion.div
     initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, scale: 0.9 }}
     animate={shouldReduceMotion ? { opacity: 1 } : { opacity: 1, scale: 1 }}
@@ -221,12 +203,13 @@ const HomeContent = ({ isDarkMode, isExpanded, setIsExpanded, shouldReduceMotion
           >
             <Card className="w-40">
               <CardContent className="p-4 flex flex-col items-center">
-                <NextImage
+                <Image
                   src={cardprofile}
                   alt="Ayoub"
                   width={100}
                   height={100}
                   className="rounded-full mb-2"
+                  priority
                 />
                 <span className="font-semibold text-sm">Ayoub</span>
                 <span className="text-xs text-muted-foreground">Software Developer</span>
@@ -243,12 +226,13 @@ const HomeContent = ({ isDarkMode, isExpanded, setIsExpanded, shouldReduceMotion
           >
             <Card className="w-40">
               <CardContent className="p-4 flex flex-col items-center">
-                <NextImage
+                <Image
                   src={gitprofile}
                   alt="GitHub Profile"
                   width={80}
                   height={80}
                   className="rounded-full mb-2"
+                  priority
                 />
                 <span className="font-semibold text-sm mb-2">ayoubbijarche</span>
                 <Button variant="outline" size="sm">
@@ -258,12 +242,12 @@ const HomeContent = ({ isDarkMode, isExpanded, setIsExpanded, shouldReduceMotion
               </CardContent>
             </Card>
             <div className="flex space-x-4">
-              <a href="mail:toayoubbijarche6@gmail.com">
+              <a href="mailto:ayoubbijarche6@gmail.com">
                 <Button variant="outline" size="icon">
                   <Mail className="h-4 w-4" />
                 </Button>
               </a>
-              <a  href="https://www.fiverr.com/bi_ayoub/buying?source=avatar_menu_profile" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.fiverr.com/bi_ayoub/buying?source=avatar_menu_profile" target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" size="icon" className="bg-[#50caa3]">
                     <h1 className="font-bold text-white">F</h1>
                 </Button>
@@ -271,6 +255,7 @@ const HomeContent = ({ isDarkMode, isExpanded, setIsExpanded, shouldReduceMotion
               <a href="https://www.upwork.com/freelancers/~019f2d8062659aa24e" target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" size="icon" className="bg-[#37A000]">
                   <h1 className="font-bold text-white">U</h1>
+                
                 </Button>
               </a>
             </div>
@@ -281,7 +266,7 @@ const HomeContent = ({ isDarkMode, isExpanded, setIsExpanded, shouldReduceMotion
   </motion.div>
 )
 
-const AboutContent = ({ isDarkMode, shouldReduceMotion } : { isDarkMode : any , shouldReduceMotion : any } ) => (
+const AboutContent = ({ isDarkMode, shouldReduceMotion }) => (
   <motion.div
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
@@ -296,12 +281,13 @@ const AboutContent = ({ isDarkMode, shouldReduceMotion } : { isDarkMode : any , 
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <NextImage
+          <Image
             src={profile}
             alt="Profile"
             width={300}
             height={300}
             className="rounded-xl shadow-lg"
+            priority
           />
         </motion.div>
       </div>
@@ -313,7 +299,7 @@ const AboutContent = ({ isDarkMode, shouldReduceMotion } : { isDarkMode : any , 
         >
           <h2 className="text-3xl font-bold mb-4">About Me</h2>
           <p className={`mb-4 ${isDarkMode ? "text-gray-300" : "text-gray-600"}`}>
-            I'm Ayoub, a software developer from Morocco. I work with a variety of technologies like  Rust, C, TypeScript, and Next.js. I enjoy building applications using Pocketbase and Supabase, and I also develop mobile apps with React Native and Flutter. I love exploring new tools and frameworks to enhance my skills and create innovative solutions.
+            I'm Ayoub, a software developer from Morocco. I work with a variety of technologies like Rust, C, TypeScript, and Next.js. I enjoy building applications using Pocketbase and Supabase, and I also develop mobile apps with React Native and Flutter. I love exploring new tools and frameworks to enhance my skills and create innovative solutions.
           </p>
         </motion.div>
         <motion.div
@@ -341,7 +327,7 @@ const AboutContent = ({ isDarkMode, shouldReduceMotion } : { isDarkMode : any , 
   </motion.div>
 )
 
-const PortfolioContent = ( { isDarkMode, shouldReduceMotion } : { isDarkMode : any , shouldReduceMotion : any } ) => (
+const PortfolioContent = ({ isDarkMode, shouldReduceMotion }) => (
   <motion.div
     key="portfolio"
     initial={{ opacity: 0 }}
@@ -361,13 +347,14 @@ const PortfolioContent = ( { isDarkMode, shouldReduceMotion } : { isDarkMode : a
           className={`border rounded-lg overflow-hidden ${isDarkMode ? "border-[#141414] " : "border-gray-200"}`}
         >
           <div className="w-full h-auto aspect-video relative overflow-hidden rounded-lg bg-white">
-            <NextImage
+            <Image
               src={project.image}
               alt={project.name}
               layout="fill"
               objectFit="contain"
               className="w-full h-full"
               style={{ borderRadius: '0.5rem' }}
+              priority={project.id <= 2}
             />
           </div>
           <div className="p-4">
@@ -390,7 +377,7 @@ const PortfolioContent = ( { isDarkMode, shouldReduceMotion } : { isDarkMode : a
   </motion.div>
 )
 
-const TechContent = ({ isDarkMode, shouldReduceMotion } : { isDarkMode : any , shouldReduceMotion : any } ) => (
+const TechContent = ({ isDarkMode, shouldReduceMotion }) => (
   <motion.div
     key="tech"
     initial={{ opacity: 0 }}
@@ -411,12 +398,13 @@ const TechContent = ({ isDarkMode, shouldReduceMotion } : { isDarkMode : any , s
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.3, delay: index * 0.05 }}
         >
-          <NextImage
+          <Image
             src={tech.icon}
             alt={tech.name}
             width={48}
             height={48}
             className="mb-2"
+            priority={index < 5}
           />
           <span className="font-medium text-center font-semibold text-sm">{tech.name}</span>
         </motion.div>
@@ -425,7 +413,7 @@ const TechContent = ({ isDarkMode, shouldReduceMotion } : { isDarkMode : any , s
   </motion.div>
 )
 
-const FloatingNavbar = ({ activeTab, handleTabChange, isDarkMode } : { activeTab : any , handleTabChange : any , isDarkMode : any} ) => (
+const FloatingNavbar = ({ activeTab, handleTabChange, isDarkMode }) => (
   <nav className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-10">
     <motion.div
       className={`rounded-2xl shadow-lg p-2 flex space-x-2 bg-opacity-30 backdrop-blur-md ${
@@ -463,7 +451,7 @@ const FloatingNavbar = ({ activeTab, handleTabChange, isDarkMode } : { activeTab
   </nav>
 )
 
-const NavItem = ({ icon, isActive, onClick, color } : { icon : any , isActive : any , onClick : any , color : any }) => (
+const NavItem = ({ icon, isActive, onClick, color }) => (
   <motion.button
     className={`relative flex items-center justify-center w-12 h-12 rounded-xl transition-all overflow-hidden`}
     onClick={onClick}
