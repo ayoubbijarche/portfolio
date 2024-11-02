@@ -8,6 +8,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import Image from "next/image"
 import Head from "next/head"
 
+// Import images
 import gitprofile from "./assets/profile/gitprofile.jpeg"
 import cardprofile from "./assets/profile/cardprofile.jpg"
 import profile from "./assets/profile/profile.png"
@@ -41,7 +42,7 @@ const projects = [
   { id: 6, name: "Svelte chat app 💬", description: "A full stack chat app made with svelte & pocketbase🐻", image: sveltechat, link: "https://github.com/ayoubbijarche/svelte-pocketbase-chatapp" },
 ]
 
-const GlowingElement = ({ color, size, left, top, delay } : { color : string, size : any, left : any, top : any, delay : any }) => {
+const GlowingElement = ({ color, size, left, top, delay } : { color : string, size : any , left : any, top : any, delay : any}) => {
   const shouldReduceMotion = useReducedMotion()
   
   return (
@@ -81,7 +82,7 @@ export default function Component() {
     setIsDarkMode(prev => !prev)
   }, [])
 
-  const handleTabChange = useCallback(({tab} : {tab : any}) => {
+  const handleTabChange = useCallback(({tab} : any) => {
     setActiveTab(tab)
   }, [])
 
@@ -156,7 +157,7 @@ export default function Component() {
   )
 }
 
-const HomeContent = ({ isDarkMode, isExpanded, setIsExpanded, shouldReduceMotion } : { isDarkMode : any, isExpanded : any, setIsExpanded : any, shouldReduceMotion : any }) => (
+const HomeContent = ({ isDarkMode, isExpanded, setIsExpanded, shouldReduceMotion } : any) => (
   <motion.div
     initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, scale: 0.9 }}
     animate={shouldReduceMotion ? { opacity: 1 } : { opacity: 1, scale: 1 }}
@@ -247,16 +248,16 @@ const HomeContent = ({ isDarkMode, isExpanded, setIsExpanded, shouldReduceMotion
                 </Button>
               </a>
               <a href="https://www.fiverr.com/bi_ayoub/buying?source=avatar_menu_profile" target="_blank" rel="noopener noreferrer">
-                <Button variant="outline" size="icon" className="bg-[#50caa3]">
+                <Button  variant="outline" size="icon" className="bg-[#50caa3]">
                     <h1 className="font-bold text-white">F</h1>
                 </Button>
               </a>
               <a href="https://www.upwork.com/freelancers/~019f2d8062659aa24e" target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" size="icon" className="bg-[#37A000]">
                   <h1 className="font-bold text-white">U</h1>
-                
                 </Button>
               </a>
+            
             </div>
           </motion.div>
         </>
@@ -265,7 +266,7 @@ const HomeContent = ({ isDarkMode, isExpanded, setIsExpanded, shouldReduceMotion
   </motion.div>
 )
 
-const AboutContent = ({ isDarkMode, shouldReduceMotion } : { isDarkMode : any, shouldReduceMotion : any}) => (
+const AboutContent = ({ isDarkMode, shouldReduceMotion } : any) => (
   <motion.div
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
@@ -326,7 +327,7 @@ const AboutContent = ({ isDarkMode, shouldReduceMotion } : { isDarkMode : any, s
   </motion.div>
 )
 
-const PortfolioContent = ({ isDarkMode, shouldReduceMotion } : { isDarkMode : any, shouldReduceMotion : any }) => (
+const PortfolioContent = ({ isDarkMode, shouldReduceMotion } : any) => (
   <motion.div
     key="portfolio"
     initial={{ opacity: 0 }}
@@ -376,7 +377,7 @@ const PortfolioContent = ({ isDarkMode, shouldReduceMotion } : { isDarkMode : an
   </motion.div>
 )
 
-const TechContent = ({ isDarkMode, shouldReduceMotion } : { isDarkMode : any, shouldReduceMotion : any }) => (
+const TechContent = ({ isDarkMode, shouldReduceMotion } : any) => (
   <motion.div
     key="tech"
     initial={{ opacity: 0 }}
@@ -412,7 +413,7 @@ const TechContent = ({ isDarkMode, shouldReduceMotion } : { isDarkMode : any, sh
   </motion.div>
 )
 
-const FloatingNavbar = ({ activeTab, handleTabChange, isDarkMode } : { activeTab : any, handleTabChange : any, isDarkMode : any }) => (
+const FloatingNavbar = ({ activeTab, handleTabChange, isDarkMode } : any) => (
   <nav className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-10">
     <motion.div
       className={`rounded-2xl shadow-lg p-2 flex space-x-2 bg-opacity-30 backdrop-blur-md ${
@@ -450,7 +451,7 @@ const FloatingNavbar = ({ activeTab, handleTabChange, isDarkMode } : { activeTab
   </nav>
 )
 
-const NavItem = ({ icon, isActive, onClick, color } : { icon : any, isActive : any, onClick : any, color : any }) => (
+const NavItem = ({ icon, isActive, onClick, color } : any) => (
   <motion.button
     className={`relative flex items-center justify-center w-12 h-12 rounded-xl transition-all overflow-hidden`}
     onClick={onClick}
