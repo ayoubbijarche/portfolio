@@ -224,10 +224,10 @@ const HomeContent = ({ isDarkMode, isExpanded, setIsExpanded, shouldReduceMotion
                 <NextImage
                   src={cardprofile}
                   alt="Ayoub"
-                  loading="lazy"
                   width={100}
                   height={100}
                   className="rounded-full mb-2"
+                  priority
                 />
                 <span className="font-semibold text-sm">Ayoub</span>
                 <span className="text-xs text-muted-foreground">Software Developer</span>
@@ -246,11 +246,11 @@ const HomeContent = ({ isDarkMode, isExpanded, setIsExpanded, shouldReduceMotion
               <CardContent className="p-4 flex flex-col items-center">
                 <NextImage
                   src={gitprofile}
-                  loading="lazy"
                   alt="GitHub Profile"
                   width={80}
                   height={80}
                   className="rounded-full mb-2"
+                  priority
                 />
                 <span className="font-semibold text-sm mb-2">ayoubbijarche</span>
                 <Button variant="outline" size="sm">
@@ -301,10 +301,10 @@ const AboutContent = ({ isDarkMode, shouldReduceMotion } : { isDarkMode : any , 
           <NextImage
             src={profile}
             alt="Profile"
-            loading="lazy"
             width={300}
             height={300}
             className="rounded-xl shadow-lg"
+            priority
           />
         </motion.div>
       </div>
@@ -367,11 +367,11 @@ const PortfolioContent = ( { isDarkMode, shouldReduceMotion } : { isDarkMode : a
             <NextImage
               src={project.image}
               alt={project.name}
-              loading="lazy"
               layout="fill"
               objectFit="contain"
               className="w-full h-full"
               style={{ borderRadius: '0.5rem' }}
+              priority
             />
           </div>
           <div className="p-4">
@@ -421,6 +421,7 @@ const TechContent = ({ isDarkMode, shouldReduceMotion } : { isDarkMode : any , s
             width={48}
             height={48}
             className="mb-2"
+            priority
           />
           <span className="font-medium text-center font-semibold text-sm">{tech.name}</span>
         </motion.div>
