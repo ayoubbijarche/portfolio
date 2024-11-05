@@ -104,9 +104,6 @@ export default function Component() {
   return (
     <>
       <Head>
-        <link rel="preload" href="/placeholder.svg?height=300&width=300" as="image" />
-        <link rel="preload" href="/placeholder.svg?height=100&width=100" as="image" />
-        <link rel="preload" href="/placeholder.svg?height=50&width=50" as="image" />
         {projects.map(project => (
           <link key={project.id} rel="preload" href={typeof project.image === "string" ? project.image : project.image.src} as="image" />
         ))}
@@ -175,7 +172,7 @@ export default function Component() {
   )
 }
 
-const HomeContent = ({ isDarkMode, isExpanded, setIsExpanded, shouldReduceMotion } : { isDarkMode : any, isExpanded : any, setIsExpanded : any, shouldReduceMotion : any }) => (
+const HomeContent = ({ isDarkMode, isExpanded, setIsExpanded, shouldReduceMotion } : any ) => (
   <motion.div
     initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, scale: 0.9 }}
     animate={shouldReduceMotion ? { opacity: 1 } : { opacity: 1, scale: 1 }}
@@ -260,7 +257,7 @@ const HomeContent = ({ isDarkMode, isExpanded, setIsExpanded, shouldReduceMotion
               </CardContent>
             </Card>
             <div className="flex space-x-4">
-              <a href="mail:toayoubbijarche6@gmail.com">
+              <a href="mailto:ayoubbijarche6@gmail.com">
                 <Button variant="outline" size="icon">
                   <Mail className="h-4 w-4" />
                 </Button>
@@ -283,7 +280,7 @@ const HomeContent = ({ isDarkMode, isExpanded, setIsExpanded, shouldReduceMotion
   </motion.div>
 )
 
-const AboutContent = ({ isDarkMode, shouldReduceMotion } : { isDarkMode : any , shouldReduceMotion : any } ) => (
+const AboutContent = ({ isDarkMode, shouldReduceMotion } : any ) => (
   <motion.div
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
@@ -344,7 +341,7 @@ const AboutContent = ({ isDarkMode, shouldReduceMotion } : { isDarkMode : any , 
   </motion.div>
 )
 
-const PortfolioContent = ( { isDarkMode, shouldReduceMotion } : { isDarkMode : any , shouldReduceMotion : any } ) => (
+const PortfolioContent = ( { isDarkMode, shouldReduceMotion } : any ) => (
   <motion.div
     key="portfolio"
     initial={{ opacity: 0 }}
@@ -394,7 +391,7 @@ const PortfolioContent = ( { isDarkMode, shouldReduceMotion } : { isDarkMode : a
   </motion.div>
 )
 
-const TechContent = ({ isDarkMode, shouldReduceMotion } : { isDarkMode : any , shouldReduceMotion : any } ) => (
+const TechContent = ({ isDarkMode, shouldReduceMotion } : any) => (
   <motion.div
     key="tech"
     initial={{ opacity: 0 }}
@@ -430,7 +427,7 @@ const TechContent = ({ isDarkMode, shouldReduceMotion } : { isDarkMode : any , s
   </motion.div>
 )
 
-const FloatingNavbar = ({ activeTab, handleTabChange, isDarkMode } : { activeTab : any , handleTabChange : any , isDarkMode : any} ) => (
+const FloatingNavbar = ({ activeTab, handleTabChange, isDarkMode } : any ) => (
   <nav className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-10">
     <motion.div
       className={`rounded-2xl shadow-lg p-2 flex space-x-2 bg-opacity-30 backdrop-blur-md ${
@@ -468,7 +465,7 @@ const FloatingNavbar = ({ activeTab, handleTabChange, isDarkMode } : { activeTab
   </nav>
 )
 
-const NavItem = ({ icon, isActive, onClick, color } : { icon : any , isActive : any , onClick : any , color : any }) => (
+const NavItem = ({ icon, isActive, onClick, color } : any) => (
   <motion.button
     className={`relative flex items-center justify-center w-12 h-12 rounded-xl transition-all overflow-hidden`}
     onClick={onClick}
