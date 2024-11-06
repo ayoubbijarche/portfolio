@@ -311,9 +311,9 @@ const AboutContent = ({ isDarkMode, shouldReduceMotion } : any ) => (
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <h2 className="text-3xl font-bold mb-4">About Me</h2>
+          <h2 className="text-[1.4rem] font-bold mb-3">🚀Self-Made Software Developer from Morocco🚀</h2>
           <p className={`mb-4 ${isDarkMode ? "text-gray-300" : "text-gray-600"}`}>
-            I'm Ayoub, a software developer from Morocco. I work with a variety of technologies like  Rust, C, TypeScript, and Next.js. I enjoy building applications using Pocketbase and Supabase, and I also develop mobile apps with React Native and Flutter. I love exploring new tools and frameworks to enhance my skills and create innovative solutions.
+            ✨I'm Ayoub bijarche, a software developer from Morocco. I work with a variety of technologies like Rust, C, TypeScript, and Next.js. I enjoy building applications using Pocketbase and Supabase, and I also develop mobile apps with React Native and Flutter. I love exploring new tools and frameworks to enhance my skills and create innovative solutions.✨
           </p>
         </motion.div>
         <motion.div
