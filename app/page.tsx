@@ -321,7 +321,7 @@ const AboutContent = ({ isDarkMode, shouldReduceMotion } : any ) => (
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <h3 className="text-2xl font-semibold mt-6 mb-3">Hire Me!</h3>
+          <h3 className="text-2xl font-semibold mt-6 mb-3">✨Contact me✨</h3>
           <div className="flex space-x-4">
             <a href="https://www.fiverr.com/bi_ayoub/buying?source=avatar_menu_profile" target="_blank" rel="noopener noreferrer">
               <Button variant="outline">Fiverr</Button>
