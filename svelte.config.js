@@ -1,17 +1,11 @@
-import adapter from '@sveltejs/adapter-static';
+import adapter from '@sveltejs/adapter-auto';
 
 // Check if it's in development mode to set base path correctly
 
 
 export default {
   kit: {
-		adapter: adapter({
-		  pages: 'build',
-		  assets: 'build',
-		  fallback: null,
-		  precompress: false,
-		  strict: true
-		}),
+		adapter: adapter(),
     
     paths: {
       // Ensure base path matches your deployment context
