@@ -1,53 +1,31 @@
 <script>
-  import { onMount } from 'svelte';
   import Navbar from '../components/Navbar.svelte';
-  import { Sun, Moon } from 'lucide-svelte';
   import '../app.css';
-
-
-  let isDarkMode = true;
-  
-  onMount(() => {
-    document.documentElement.classList.add('dark');
-  });
-
-  function toggleTheme() {
-    isDarkMode = !isDarkMode;
-    document.documentElement.classList.toggle('dark');
-  }
 </script>
 
 <svelte:head>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </svelte:head>
 
-<div class={`min-h-screen transition-colors duration-300 ${isDarkMode ? 'dark bg-[#020205]' : 'bg-gray-50'}`}>
-  <button 
-    on:click={toggleTheme}
-    class="fixed top-4 right-4 p-2 rounded-full transition-colors z-50
-           {isDarkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'}"
-  >
-    {#if isDarkMode}
-      <Sun size={24} />
-    {:else}
-      <Moon size={24} />
-    {/if}
-  </button>
+<div class="min-h-screen" style="background-color: #f8f1e4;">
   
-  <!-- Glowing elements -->
+  <!-- Fire Particles -->
   <div class="fixed inset-0 overflow-hidden pointer-events-none">
-    <div class="absolute top-[60%] left-[70%] w-40 h-40 rounded-full bg-red-500 dark:bg-red-500 
-                blur-[50px] animate-pulse-slow"></div>
-    <div class="absolute top-[20%] left-[10%] w-32 h-32 rounded-full bg-blue-500 dark:bg-blue-500 
-                blur-[50px] animate-pulse-slower"></div>
-    <div class="absolute top-[80%] left-[20%] w-24 h-24 rounded-full bg-purple-500 dark:bg-purple-500 
-                blur-[50px] animate-pulse-slow"></div>
-    <div class="absolute top-[15%] left-[85%] w-40 h-40 rounded-full bg-orange-500 dark:bg-orange-500 
-                blur-[50px] animate-pulse-slower"></div>
+    <!-- Fire sparks emerging from bottom -->
+    <div class="fire-particle fire-particle-1"></div>
+    <div class="fire-particle fire-particle-2"></div>
+    <div class="fire-particle fire-particle-3"></div>
+    <div class="fire-particle fire-particle-4"></div>
+    <div class="fire-particle fire-particle-5"></div>
+    <div class="fire-particle fire-particle-6"></div>
+    <div class="fire-particle fire-particle-7"></div>
+    <div class="fire-particle fire-particle-8"></div>
+    <div class="fire-particle fire-particle-9"></div>
+    <div class="fire-particle fire-particle-10"></div>
   </div>
   
   <slot />
-  <Navbar {isDarkMode} />
+  <Navbar />
 </div>
 
 <style>
@@ -59,22 +37,112 @@
     color-scheme: dark;
   }
 
-  @keyframes pulse-slow {
-    0%, 100% { transform: scale(1); opacity: 0.3; }
-    50% { transform: scale(1.1); opacity: 0.4; }
+  /* Fire Particle Animations */
+  @keyframes fire-spark {
+    0% {
+      transform: translateY(0) translateX(0) scale(0);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.8;
+      transform: translateY(-20vh) translateX(var(--drift-x)) scale(1);
+    }
+    50% {
+      opacity: 0.6;
+      transform: translateY(-50vh) translateX(calc(var(--drift-x) * 2)) scale(0.8);
+    }
+    80% {
+      opacity: 0.3;
+      transform: translateY(-80vh) translateX(calc(var(--drift-x) * 3)) scale(0.5);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-100vh) translateX(calc(var(--drift-x) * 4)) scale(0);
+    }
   }
   
-  @keyframes pulse-slower {
-    0%, 100% { transform: scale(1); opacity: 0.3; }
-    50% { transform: scale(1.2); opacity: 0.4; }
+  .fire-particle {
+    position: absolute;
+    bottom: 0;
+    width: 3px;
+    height: 8px;
+    background: #442d18;
+    border-radius: 50%;
+    box-shadow: 
+      0 0 6px #442d18,
+      0 0 12px rgba(68, 45, 24, 0.8),
+      0 0 18px rgba(68, 45, 24, 0.6);
+    animation: fire-spark linear infinite;
   }
   
-  :global(.animate-pulse-slow) {
-    animation: pulse-slow 4s ease-in-out infinite;
+  .fire-particle-1 {
+    left: 10%;
+    --drift-x: -10px;
+    animation-duration: 4s;
+    animation-delay: 0s;
   }
   
-  :global(.animate-pulse-slower) {
-    animation: pulse-slower 6s ease-in-out infinite;
+  .fire-particle-2 {
+    left: 20%;
+    --drift-x: 15px;
+    animation-duration: 5s;
+    animation-delay: 0.5s;
+  }
+  
+  .fire-particle-3 {
+    left: 30%;
+    --drift-x: -8px;
+    animation-duration: 4.5s;
+    animation-delay: 1s;
+  }
+  
+  .fire-particle-4 {
+    left: 40%;
+    --drift-x: 12px;
+    animation-duration: 5.5s;
+    animation-delay: 1.5s;
+  }
+  
+  .fire-particle-5 {
+    left: 50%;
+    --drift-x: -15px;
+    animation-duration: 4.2s;
+    animation-delay: 2s;
+  }
+  
+  .fire-particle-6 {
+    left: 60%;
+    --drift-x: 8px;
+    animation-duration: 5.2s;
+    animation-delay: 2.5s;
+  }
+  
+  .fire-particle-7 {
+    left: 70%;
+    --drift-x: -12px;
+    animation-duration: 4.8s;
+    animation-delay: 3s;
+  }
+  
+  .fire-particle-8 {
+    left: 80%;
+    --drift-x: 18px;
+    animation-duration: 5.8s;
+    animation-delay: 3.5s;
+  }
+  
+  .fire-particle-9 {
+    left: 90%;
+    --drift-x: -6px;
+    animation-duration: 4.3s;
+    animation-delay: 4s;
+  }
+  
+  .fire-particle-10 {
+    left: 15%;
+    --drift-x: 10px;
+    animation-duration: 5.3s;
+    animation-delay: 4.5s;
   }
 </style>
 
