@@ -21,9 +21,9 @@
     });
   }
 
-  function handleCardHover(id, text) {
+  function handleCardHover(id: number | null, text: string | undefined) {
     hoveredCard = id;
-    bgText = text;
+    var bgText = text;
   }
 
   function handleCardLeave() {
@@ -31,6 +31,7 @@
   }
 </script>
 
+<!-- svelte-ignore a11y_no_static_element_interactions -->
 <div 
   class="gallery"
   on:mousemove={handleMouseMove}
@@ -42,6 +43,7 @@
 
 <div>
   {#each items as item}
+    <!-- svelte-ignore a11y_no_static_element_interactions -->
     <div 
       class="absolute shadow-md rounded-[15px] overflow-hidden transform transition-all duration-300 hover:scale-105 z-10"
       style="background-color: #f8f1e4; top: {item.top}; left: {item.left}; width: 250px; height: 350px;"
@@ -53,7 +55,7 @@
       <a href={item.link} class="block">
         <img 
           src={item.image} 
-          alt={item.name} 
+          alt={item.title} 
           loading="eager"
           class="ml-[5%] rounded-[15px] mt-[5%] w-[90%] h-[80%] object-cover"
         />
