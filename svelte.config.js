@@ -1,18 +1,19 @@
-import adapter from '@sveltejs/adapter-auto';
-
-// Check if it's in development mode to set base path correctly
-
+import adapter from '@sveltejs/adapter-static';
 
 export default {
   kit: {
-		adapter: adapter(),
-    
+    adapter: adapter({
+      pages: 'build',
+      assets: 'build',
+      fallback: undefined,
+      precompress: false,
+      strict: true
+    }),
     paths: {
-      // Ensure base path matches your deployment context
       base: process.env.NODE_ENV === "production" ? "/portfolio" : "",
     },
-  },
-
-
-	
+    prerender: {
+      handleHttpError: 'warn'
+    }
+  }
 };

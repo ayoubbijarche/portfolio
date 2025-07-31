@@ -40,10 +40,14 @@
   /* Fire Particle Animations */
   @keyframes fire-spark {
     0% {
-      transform: translateY(0) translateX(0) scale(0);
+      transform: translateY(30px) translateX(0) scale(0);
       opacity: 0;
     }
-    10% {
+    5% {
+      opacity: 0;
+      transform: translateY(10px) translateX(var(--drift-x)) scale(0);
+    }
+    15% {
       opacity: 0.8;
       transform: translateY(-20vh) translateX(var(--drift-x)) scale(1);
     }
@@ -63,7 +67,7 @@
   
   .fire-particle {
     position: absolute;
-    bottom: 0;
+    bottom: -30px;
     width: 3px;
     height: 8px;
     background: #442d18;
@@ -73,6 +77,7 @@
       0 0 12px rgba(68, 45, 24, 0.8),
       0 0 18px rgba(68, 45, 24, 0.6);
     animation: fire-spark linear infinite;
+    opacity: 0;
   }
   
   .fire-particle-1 {
