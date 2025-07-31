@@ -9,15 +9,15 @@
   });
 
   let hoveredCard: number | null = null;
-  let bgText = "BORED COLLECTION";
+
 
   function handleMouseMove(event: { clientX: any; clientY: any; }) {
     const { clientX, clientY } = event;
     const { innerWidth, innerHeight } = window;
     
     coords.set({
-      x: (clientX - innerWidth / 2) / (innerWidth / 4),
-      y: (clientY - innerHeight / 2) / (innerHeight / 4)
+      x: (clientX - innerWidth / 2) / (innerWidth / 8),
+      y: (clientY - innerHeight / 2) / (innerHeight / 8)
     });
   }
 

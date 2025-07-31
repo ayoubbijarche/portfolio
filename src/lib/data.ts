@@ -4,16 +4,18 @@ import lending from "$lib/static/lending.webp"
 import realestate from "$lib/static/realestate.webp"
 import lottery from "$lib/static/lottery.webp"
 import chip8 from "$lib/static/chip8.webp"
+import web3 from "$lib/static/web3.webp"
+import pow from "$lib/static/pow.webp"
 
 export const items = [
     { 
       id: 1, 
       image: counter, 
-      link: "https://github.com/ayoubbijarche/counterdapp", 
+      link: "https://github.com/ayoubbijarche/raydium_swap_sample", 
       top: "20%", 
       left: "27%",
-      title: "Counter dapp",
-      subtitle: "counter dapp in solana anchor🧮",
+      title: "Raydium swap Dex",
+      subtitle: "Token Swap on Raydium Using Anchor Framework💱",
     },
     { 
       id: 2,
@@ -49,11 +51,39 @@ export const items = [
       image : lottery,
       link: "https://github.com/ayoubbijarche/lottery-dapp", 
       hoverText: "PIXEL",
-      top: "40%", 
-      left: "45%",
+      top: "25%", 
+      left: "40%",
       title: "Lottery dapp",
       subtitle: "a lottery game in solana anchor⚓",
     },
+
+
+    {
+      id: 5, 
+      image : web3,
+      link: "https://github.com/ayoubbijarche/full-web3-platform", 
+      hoverText: "PIXEL",
+      top: "45%", 
+      left: "50%",
+      title: "A full web3 platform",
+      subtitle: "full web3 platform in pocketbase, nextjs & anchor💻",
+    },
+
+
+    {
+      id: 5, 
+      image : pow,
+      link: "https://github.com/ayoubbijarche/blockchain_rustpow", 
+      hoverText: "PIXEL",
+      top: "60%", 
+      left: "35%",
+      title: "Proof of work",
+      subtitle: "Bitcoin's proof of work implementation in rust🦀",
+    },
+
+
+
+
     {
       id: 6, 
       image : chip8,
