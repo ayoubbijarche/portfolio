@@ -6,6 +6,7 @@ import lottery from "$lib/static/lottery.webp"
 import chip8 from "$lib/static/chip8.webp"
 import web3 from "$lib/static/web3.webp"
 import pow from "$lib/static/pow.webp"
+import mint from "$lib/static/mint.webp"
 
 export const items = [
     { 
@@ -42,7 +43,7 @@ export const items = [
       link: "https://github.com/ayoubbijarche/realestate-marketplace-dapp", 
       hoverText: "DIGITAL",
       top: "25%", 
-      left: "62%",
+      left: "59%",
       title: "Real Estate Contract",
       subtitle: "real estate marketplace dapp🏠",
     },
@@ -59,7 +60,7 @@ export const items = [
 
 
     {
-      id: 5, 
+      id: 6, 
       image : web3,
       link: "https://github.com/ayoubbijarche/full-web3-platform", 
       hoverText: "PIXEL",
@@ -71,7 +72,7 @@ export const items = [
 
 
     {
-      id: 5, 
+      id: 7, 
       image : pow,
       link: "https://github.com/ayoubbijarche/blockchain_rustpow", 
       hoverText: "PIXEL",
@@ -81,19 +82,30 @@ export const items = [
       subtitle: "Bitcoin's proof of work implementation in rust🦀",
     },
 
-
-
-
     {
-      id: 6, 
+      id: 8, 
       image : chip8,
       link: "https://github.com/ayoubbijarche/chip8emu-rust", 
       hoverText: "PIXEL",
       top: "55%", 
-      left: "65%",
+      left: "62%",
       title: "Chip8 emulator",
       subtitle: "a chip8 emulator in rust🦀",
     },
+
+
+    {
+      id: 9, 
+      image : mint,
+      link: "https://github.com/ayoubbijarche/minting_api", 
+      hoverText: "PIXEL",
+      top: "35%", 
+      left: "68%",
+      title: "Minting Api",
+      subtitle: "An api to create tokends in solana🪙",
+    },
+
+
   ];
 
 
